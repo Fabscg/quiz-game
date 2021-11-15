@@ -1,0 +1,57 @@
+body{
+  
+  font-family: 'Roboto Mono', monospace;
+}main{
+  text-align: center;
+  margin:50px auto;
+}
+
+.container{
+    text-align: center;
+}
+
+.pContainer-question{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}    
+
+.hidden {
+  display: none;
+}
+
+ul{
+  cursor: pointer;
+  padding: 20px auto;
+}
+
+button {
+  background-color: rgb(129, 88, 168);
+  color: white;
+  border-radius: 10px;
+  padding:10px 30px 10px 30px;
+  font-size: 25px;
+}
+ li{font-size: 16px;
+  background-color: rgb(129, 88, 168); 
+  border-radius: 10px;
+  padding:10px 30px 10px 0;
+  border:solid 5px white;
+  justify-content: space-between;
+  align-items:flex-start ;
+  list-style-type: none;
+  margin: 0;
+  color:white;
+}
+  
+
+a{
+  text-decoration: none;
+  color: white;
+  padding:  30px auto;
+}
+
+footer{
+  color:gray;
+  font-size: 12px;
+}
