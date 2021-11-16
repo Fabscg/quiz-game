@@ -96,10 +96,10 @@ function options(event){
 
         if (element.textContent == allQuestions[questionIndex].correct){
             score++;
-            createH3.textContent = "Correct!";
+            createH3.textContent = "Correct!" + allQuestions[questionIndex].correct;
         } else {
             remainingTime = remainingTime - substractedTime;
-            createH3.textContent = "Wrong!";
+            createH3.textContent = "Wrong!" + allQuestions[questionIndex].correct;
         } 
         
     } 
