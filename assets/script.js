@@ -43,7 +43,6 @@ var question = document.createElement('h2')
 var questionIndex = 0;
 var optionContainer = document.querySelector('.options-container')
 var timeEl = document.querySelector(".time")
-var timer = document.querySelector(".setup-timer");
 var remainingTime = 75;
 var holdTime = 0;
 var substractedTime = 10;
@@ -60,7 +59,7 @@ startBtn.addEventListener('click', function(){
         if(remainingTime <= 0){
             clearInterval(holdTime);
             allDone();
-            timer.textContent = "all Done!";
+            startBtn.textContent = "all Done!";
         }
 
     }, 1000); 
@@ -105,7 +104,7 @@ function options(event){
     } 
     questionIndex++;
         if(questionIndex >= allQuestions.length){
-            allDone();
+            allDone()
             createH3.textContent = "The Quiz is Over! Your score is " + score + 
         "/ " + allQuestions.length + " Correct!";
     } else {
@@ -116,21 +115,17 @@ function options(event){
       
 };
 
-
-
-
 function allDone(){
     quizContainer.innerHTML = "";
-    timer.innerHTML = "";
+    startBtn.innerHTML = "";
 
     var createH1 = document.querySelector("h1");
-    createH1.setAttribute("id", "createH1");
+    createH1.setAttribute("id","createH1");
     createH1.textContent = "All Done!";
     quizContainer.appendChild(createH1);
 
     var pContainer = document.querySelector("p");
     pContainer.setAttribute("id", "p");
-
     quizContainer.appendChild(pContainer);
 
     if(remainingTime >= 0) {
