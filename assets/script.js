@@ -26,12 +26,12 @@ var allQuestions = [
             correct:'All of the above.'
         },
    
-    {
-        question: "String values can be enclosed within ____ when being assign to variables.",
-        options: ["Cmmas", "Curly Brackets", "Quotes", "Paranthesis"],
-        correct: "Quotes"
-    },
-]
+        {
+            options: ["Cmmas", "Curly Brackets", "Quotes", "Paranthesis"],
+            question: "String values can be enclosed within ____ when being assign to variables.",
+            correct: "Quotes"
+        },
+];
 
 
 // SET UP GLOBAL VARIABLES
@@ -46,8 +46,9 @@ var timeEl = document.querySelector(".time")
 var timer = document.querySelector(".setup-timer");
 var remainingTime = 75;
 var holdTime = 0;
-var substratedTime = 10;
+var substractedTime = 10;
 var createUl = document.querySelector("ul");
+var score = 0;
 
 
 
@@ -59,7 +60,7 @@ startBtn.addEventListener('click', function(){
         if(remainingTime <= 0){
             clearInterval(holdTime);
             allDone();
-            timer.textContent = "Time is Over!";
+            timer.textContent = "all Done!";
         }
 
     }, 1000); 
@@ -81,16 +82,11 @@ function render (questionIndex) {
         listEl.textContent = newItem;
         quizContainer.appendChild(createUl);
         createUl.appendChild(listEl);
-        listEl.addEventListener("click", (userOptions));
+        listEl.addEventListener("click", (options));
     })
 }
 
 function options(event){
-    questionIndex++;
-        if(questionIndex >= allQuestions.length){
-            gameIsOver();
-            createH3.textContent = "The Quiz is Over! Your score is " + score + 
-        "/" + allQuestions.length}
    
     var element = event.target;
 
@@ -98,15 +94,24 @@ function options(event){
         var createH3 = document.createElement("h3");
         createH3.setAttribute("id", "createH3");
 
-        if (element.textContent == allQuestions[questionIndex].options){
+        if (element.textContent == allQuestions[questionIndex].correct){
             score++;
-            createH3.textContent ="Correct!";
+            createH3.textContent = "Correct!";
         } else {
-            remainingTime = remainingTime - substratedTime;
+            remainingTime = remainingTime - substractedTime;
             createH3.textContent = "Wrong!";
         } 
         
     } 
+    questionIndex++;
+        if(questionIndex >= allQuestions.length){
+            allDone();
+            createH3.textContent = "The Quiz is Over! Your score is " + score + 
+        "/ " + allQuestions.length + " Correct!";
+    } else {
+        render(questionIndex);
+    }
+    quizContainer.appendChild(createH3);
            
       
 };
@@ -120,13 +125,13 @@ function allDone(){
 
     var createH1 = document.querySelector("h1");
     createH1.setAttribute("id", "createH1");
-    createH1.textContent = "Quiz it's over!";
+    createH1.textContent = "All Done!";
     quizContainer.appendChild(createH1);
 
-    var pContainer = document.querySelector(".pContainer-question");
-    pContainer.setAttribute("id", "pContainer");
+    var pContainer = document.querySelector("p");
+    pContainer.setAttribute("id", "p");
 
-    allQuestions.appendChild(pContainer);
+    quizContainer.appendChild(pContainer);
 
     if(remainingTime >= 0) {
         var timeLeft = remainingTime;
