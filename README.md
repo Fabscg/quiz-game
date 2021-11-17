@@ -9,6 +9,10 @@
 2. **CSS**
 3. **JavaScript**
 
+## GitHub Repo: https://github.com/Fabskickass/quiz-game
+
+## Deployed URL: https://fabskickass.github.io/quiz-game/
+
 ![alt text](./assets/images/Quiz-code.png)
 
 [**addEventListener information**] (https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
